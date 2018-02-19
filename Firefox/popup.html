@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
+
+<div class="home-logo">
+  <img src="icon.png" alt="logo" id="logo" /> Currency Converter
+</div>
+
+<div id="conversion-form" class="conversion-form">
+  <h3 class="currency-title">Enter your details</h3>
+  <form action="javascript:void:;" id="convert-currency-form">
+    <div class="p-container">
+      <label class="p-label" for="currency-amount">Amount</label>
+      <input type="number" placeholder="Enter amount to be converted" id="currency-amount" required>
+    </div>
+    <div class="p-container">
+      <label class="p-label" for="from-currency">From</label>
+      <select name="fromcurrency" id="from-currency" required></select>
+    </div>
+    <div class="p-container">
+      <label class="p-label" for="to-currency">To</label>
+      <select name="tocurrency" id="to-currency" required></select>
+    </div>
+    
+    <div class="p-container">
+      <button id="convert-currency" class="currency-btn" type="submit">Convert</button>
+      <button id="reset-currency" class="currency-btn" type="reset">Clear</button>
+    </div>
+
+    <div class="result-container" id="result-container">
+      <span id="conversion-result"></span>
+      <img src="loader.gif" alt="loading..." id="currency-loader">
+    </div>
+  </form>
+</div>
+
+<div class="currency-footer">
+  <p class="copyright-text">&copy; Copyright <a href="http://tcmhack.com" target="_blank">TCMHACK</a> 2018. All Rights Reserved.</p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="popup.css">
+<script src="popup.js"></script>

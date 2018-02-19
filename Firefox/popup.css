@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  min-width: 350px;
+  font-family: 'Amaranth';
+}
+img#logo {
+  float: left;
+  max-height: 40px;
+  margin-right: 10px;
+}
+.home-logo {
+  overflow: hidden;
+  background: #ffffff;
+  color: #2196f3;
+  font-size: 22px;
+  line-height: 1.8;
+  padding: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.18);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.18);
+}
+button.currency-btn,
+button.currency-btn:focus {
+  box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  transition: all .3s ease-out;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 16px;
+  text-shadow: none !important;
+  margin: 0;
+  background: #2196F3;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  font-family: inherit;
+  width: 49%;
+  float: left;
+}
+button.currency-btn:hover{
+  background: #1976D2;
+}
+.p-container {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.p-container input,
+.p-container textarea,
+.p-container select {
+  border: 1px solid #BDBDBD;
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-family: inherit;
+  width: 100%;
+}
+.p-container label.p-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.p-container input:focus,
+.p-container textarea:focus,
+.p-container select:focus {
+  border-color: #2196F3;
+  box-shadow: 0 0 10px #EEEEEE;
+  outline: none;
+}
+button#convert-currency {
+  margin-right: 1%;
+}
+h3.currency-title {
+  text-align: center;
+  color: #9e9e9e;
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+form#convert-currency-form {
+  padding: 15px;
+  margin: 0;
+}
+div.currency-footer {
+  text-align: center;
+  border-top: 1px solid #E0E0E0;
+  padding: 10px;
+  letter-spacing: 1px;
+}
+div.currency-footer p.copyright-text {
+  margin: 0;
+}
+.result-container {
+  text-align: center;
+  box-shadow: 0 0 10px #9E9E9E;
+  padding: 10px;
+  display: block;
+  width: 95%;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  background: #FF5722;
+}
+/*img#currency-loader{display: none;}*/

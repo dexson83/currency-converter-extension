@@ -1,0 +1,22 @@
+{
+   "name": "Currency Converter",
+   "version": "1.0",
+   "author": "Tikam Chand",
+   "manifest_version": 2,
+   "minimum_chrome_version": "53",
+   "description": "Currency Converter allows you to check how much you should get when you convert your currency into another",
+   "homepage_url": "http://www.tcmhack.com/",
+   "icons": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png"
+   },
+   "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html",
+      "default_title": "Currency Converter"
+   },
+   "background": {
+      "scripts": [ "background-script.js" ]
+   }
+}
