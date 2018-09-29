@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+	<link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
+	<link rel="stylesheet" href="css/popup.css">
+	<link rel="stylesheet" href="css/selectize.css">
+</head>
+<body>
+	<div class="p-header">
+		<img src="icon.png" id="p-logo">Currency Converter
+	</div>
+
+	<form action="javascript:void:;" id="convert-currency-form">
+        <div class="p-container">
+            <label class="p-label" for="amount">Amount</label>
+            <input type="number" placeholder="Enter amount to be converted" id="amount" required>
+        </div>
+        <div class="p-container">
+            <label class="p-label" for="fromCurrency1">From</label>
+            <select class="currency-list" id="fromCurrency" required>
+                <option value="">Please Select</option>
+            </select>
+        </div>
+        <div class="p-container">
+            <label class="p-label" for="toCurrency1">To</label>
+            <select class="currency-list" id="toCurrency" required>
+                <option value="">Please Select</option>
+            </select>
+        </div>
+        <div class="p-container overflow">
+            <button id="convert-currency" class="currency-btn" type="submit">Convert</button>
+            <button id="reset-currency" class="currency-btn" type="reset">Reset</button>
+        </div>
+        <div class="p-container overflow result-container">
+            Please Wait...
+        </div>
+    </form>
+
+    <div class="p-footer">
+        <p class="copyright-text">
+            &copy; Copyright <a href="http://tcmhack.com" target="_blank">TCMHACK</a> 2018. All Rights Reserved.
+        </p>
+    </div>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/selectize.js"></script>
+	<script src="js/popup.js"></script>
+</body>
+</html>

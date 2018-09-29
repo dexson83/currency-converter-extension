@@ -1,6 +1,6 @@
 {
    "name": "Currency Converter",
-   "version": "1.0",
+   "version": "2.0",
    "author": "Tikam Chand",
    "manifest_version": 2,
    "minimum_chrome_version": "53",
@@ -17,6 +17,6 @@
       "default_title": "Currency Converter"
    },
    "background": {
-      "scripts": [ "background-script.js" ]
+      "scripts": ["js/background.js"]
    }
 }

@@ -1,0 +1,107 @@
+body {
+    min-width: 360px;
+    height: auto;
+    font-family: 'Amaranth', sans-sarif !important;
+    padding: 0;
+    margin: 0;
+}
+img#p-logo {
+    float: left;
+    max-height: 35px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+}
+.p-header {
+    font-size: 2rem;
+    line-height: 1;
+    padding: 10px;
+    background: #E0E0E0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+form#convert-currency-form {
+    display: block;
+    padding: 10px 15px;
+}
+button.currency-btn,
+button.currency-btn:focus {
+    box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+    transition: all .3s ease-out;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 3px;
+    font-size: 16px;
+    text-shadow: none !important;
+    margin: 0;
+    background: #2196F3;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    font-family: inherit;
+    width: 50%;
+    float: left;
+}
+button.currency-btn:hover{
+    background: #1976D2;
+}
+.p-container {
+    margin-bottom: 10px;
+}
+.p-container.overflow {
+    overflow: hidden;
+}
+.p-container input,
+.p-container textarea,
+.p-container select {
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    padding: 8px 10px;
+    font-family: inherit;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+}
+.p-container label.p-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+.p-container input:focus,
+.p-container textarea:focus,
+.p-container select:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 10px #EEEEEE;
+    outline: none;
+}
+button#convert-currency {
+    margin-right: 1%;
+    width: 49%;
+}
+div.p-footer {
+    text-align: center;
+    border-top: 1px solid #E0E0E0;
+    padding-top: 10px;
+    font-family: 'Amaranth' !important;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px;
+    background: #E0E0E0;
+}
+div.p-footer p.copyright-text {
+    margin: 0;
+}
+.result-container {
+    text-align: center;
+    box-shadow: 0 0 10px #9E9E9E;
+    padding: 10px;
+    display: block;
+    width: 95%;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    background: #FF5722;
+    display: none;
+    letter-spacing: 1px;
+}
