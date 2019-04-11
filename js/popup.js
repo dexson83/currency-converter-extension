@@ -25,7 +25,7 @@ $(function(){
                 options: listOptions,
                 closeAfterSelect: true
             });
-        }, 1000);
+        }, 500);
     });
 });
 
