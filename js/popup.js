@@ -1,15 +1,15 @@
-var browser;
+let browser;
 if (navigator.userAgent.indexOf("Chrome") !== -1){
     browser = chrome;   
 }
 
 $(function(){
     // Get Currencies List
-    sendAjaxToApi({URL: 'currencies'}, function(response){
-        var listOptions = [];
+    getCurrencies(function(response){
+        let listOptions = [];
         if(response.results){
             $.each(response.results, function(key, item){
-                var currencyItem = {
+                let currencyItem = {
                     id: key,
                     title: item.currencyName + (item.currencySymbol ? ' (' + item.currencySymbol+')' : '')
                 };
@@ -17,7 +17,7 @@ $(function(){
             });
         }
         
-        setTimeout(function(){
+        // setTimeout(() => {
             $('.currency-list').selectize({
                 valueField: 'id',
                 labelField: 'title',
@@ -25,7 +25,7 @@ $(function(){
                 options: listOptions,
                 closeAfterSelect: true
             });
-        }, 500);
+        // }, 200);
     });
 });
 
@@ -51,6 +51,14 @@ $(document).on("submit", '#convert-currency-form', function(e){
         }
     });
 });
+
+function getCurrencies(callback){
+    if(localStorage.currencies){
+        callback(JSON.parse(localStorage.currencies))
+    } else {
+        sendAjaxToApi({URL: 'currencies'}, callback)
+    }
+}
 
 function sendAjaxToApi(messageData, callback){
     browser.runtime.sendMessage(messageData, function(response){

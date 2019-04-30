@@ -1,4 +1,4 @@
-﻿var browser;
+﻿let browser;
 if (navigator.userAgent.indexOf("Chrome") !== -1){
     browser = chrome;   
 }
@@ -11,9 +11,9 @@ browser.runtime.onMessage.addListener(function(request,sender,sendResponse) {
 });
 
 function sendAjax(url, callback){
-    var apiKey = 'apiKey=c56e5d3aa3616d1d1348';
-    var API_URL = 'https://free.currencyconverterapi.com/api/v6/'+ url + ((url == 'currencies') ? '?' : '&') + apiKey;
-    var xhr = new XMLHttpRequest();
+    let apiKey = 'apiKey=c56e5d3aa3616d1d1348';
+    let API_URL = 'https://free.currencyconverterapi.com/api/v6/'+ url + ((url == 'currencies') ? '?' : '&') + apiKey;
+    let xhr = new XMLHttpRequest();
     xhr.open("GET", API_URL, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -22,3 +22,13 @@ function sendAjax(url, callback){
     }
     xhr.send( null );
 }
+
+function getCurrencies(){
+    sendAjax('currencies', function(response){
+        localStorage.currencies = JSON.stringify(response);
+    })
+}
+
+// Get Currencies
+chrome.runtime.onStartup.addListener(getCurrencies);
+chrome.runtime.onInstalled.addListener(getCurrencies);
