@@ -1,4 +1,4 @@
-let browser;
+let browser, selectize;
 if (navigator.userAgent.indexOf("Chrome") !== -1){
     browser = chrome;   
 }
@@ -17,17 +17,55 @@ $(function(){
             });
         }
         
-        // setTimeout(() => {
-            $('.currency-list').selectize({
-                valueField: 'id',
-                labelField: 'title',
-                searchField: 'title',
-                options: listOptions,
-                closeAfterSelect: true
-            });
-        // }, 200);
+        selectize = $('.currency-list').selectize({
+            valueField: 'id',
+            labelField: 'title',
+            searchField: 'title',
+            options: listOptions,
+            closeAfterSelect: true
+        });
+        
+        // Set Default Currencies
+        setDefaultCurrencies();
     });
+
+    $('#currentYear').text(new Date().getFullYear());
+    $('#settings').on('click', function(){
+        $('#settings_modal').show();
+    })
+    $('#cancelbtn').on('click', function(){
+        $('#settings_modal').hide();
+    })
 });
+
+function setDefaultCurrencies(){
+    if(localStorage.defaultCurrencies){
+        let dc = JSON.parse(localStorage.defaultCurrencies);
+        $.each(selectize, function(i, item){
+            let defaultValue = item.id == 'fromCurrency' || item.id == 'fromCurrency1' ? dc.fromCurrency : dc.toCurrency;
+            item.selectize.setValue(defaultValue);
+        })
+    }
+}
+
+$('#settings_form').on('submit', function(e){
+    e.preventDefault();
+
+    let defaultCurrencies = {
+        fromCurrency: $('#fromCurrency1').val(),
+        toCurrency: $('#toCurrency1').val()
+    };
+
+    localStorage.defaultCurrencies = JSON.stringify(defaultCurrencies);
+
+    // Set Default Currencies
+    if($('#apply_changes').is(':checked')){
+        setDefaultCurrencies();
+    }
+
+    $('#settings_modal').hide();
+    alert('Default Currencies Saved!');
+})
 
 $(document).on('click', '#reset-currency', function(){
     $('.result-container').fadeOut();

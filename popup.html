@@ -9,7 +9,8 @@
 </head>
 <body>
 	<div class="p-header">
-		<img src="icon.png" id="p-logo">Currency Converter
+        <img src="icon.png" id="p-logo">Currency Converter
+        <button id="settings" title="Default Settings">&#9965;</button>
 	</div>
 
 	<form action="javascript:void:;" id="convert-currency-form">
@@ -18,14 +19,14 @@
             <input type="number" placeholder="Enter amount to be converted" id="amount" required>
         </div>
         <div class="p-container">
-            <label class="p-label" for="fromCurrency1">From</label>
-            <select class="currency-list" id="fromCurrency" required>
+            <label class="p-label" for="fromCurrency">From</label>
+            <select class="currency-list fromCurrency" id="fromCurrency" required>
                 <option value="">Please Select</option>
             </select>
         </div>
         <div class="p-container">
-            <label class="p-label" for="toCurrency1">To</label>
-            <select class="currency-list" id="toCurrency" required>
+            <label class="p-label" for="toCurrency">To</label>
+            <select class="currency-list toCurrency" id="toCurrency" required>
                 <option value="">Please Select</option>
             </select>
         </div>
@@ -40,9 +41,40 @@
 
     <div class="p-footer">
         <p class="copyright-text">
-            &copy; Copyright <a href="http://tcmhack.in" target="_blank">TCMHACK</a> 2018. All Rights Reserved.
+            &copy; Copyright <a href="http://tcmhack.in" target="_blank">TCMHACK</a> <span id="currentYear">2018</span>. All Rights Reserved.
         </p>
     </div>
+
+    <!-- Default Settings -->
+    <div id="settings_modal" class="modal">
+        <form class="modal-content animate" id="settings_form">
+            <div class="modal-header">Default Settings</div>
+            <div class="modal-body">
+                <div class="p-container">
+                    <label class="p-label" for="fromCurrency1">Default From Currency</label>
+                    <select class="currency-list fromCurrency" id="fromCurrency1" required>
+                        <option value="">Please Select</option>
+                    </select>
+                </div>
+                <div class="p-container">
+                    <label class="p-label" for="toCurrency1">Default To Currency</label>
+                    <select class="currency-list toCurrency" id="toCurrency1" required>
+                        <option value="">Please Select</option>
+                    </select>
+                </div>
+                <div class="p-container">
+                    <label for="apply_changes">
+                        <input type="checkbox" id="apply_changes" checked /> Apply Changes to All.
+                    </label>
+                </div>
+                <div class="p-container overflow">
+                    <button id="submitbtn" class="currency-btn" type="submit">Save</button>
+                    <button id="cancelbtn" class="currency-btn" type="reset">Close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/selectize.js"></script>
 	<script src="js/popup.js"></script>
