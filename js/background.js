@@ -1,7 +1,4 @@
-﻿let browser;
-if (navigator.userAgent.indexOf('Chrome') !== -1) {
-  browser = chrome;
-}
+﻿let browser = window.browser || window.chrome;
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.URL) {

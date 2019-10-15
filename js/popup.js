@@ -1,7 +1,5 @@
-let browser, selectize;
-if (navigator.userAgent.indexOf('Chrome') !== -1) {
-  browser = chrome;
-}
+let selectize;
+let browser = window.browser || window.chrome;
 
 $(() => {
   // Get Currencies List
