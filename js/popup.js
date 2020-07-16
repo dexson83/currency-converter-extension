@@ -138,14 +138,22 @@ $(document).on('submit', '#convert-currency-form', e => {
 
   var amount = $('#amount').val();
   var from = $('#fromCurrency').val();
-  var to = $('#toCurrency').val();
-  var q = from + '_' + to;
+  $('.toCurrency').each(function(index, currentElement){
+    if(index + 1 != $('.toCurrency').length) {
+      var to = currentElement.value;
+      var q = from + '_' + to;
 
-  sendAjaxToApi({ URL: 'convert?q=' + q }, response => {
-    if (response.results) {
-      var val = response.results[q].val;
-      var result = ((val * amount * 100) / 100).toFixed(2);
-      $('.result-container').html('<strong>Result: </strong>' + result + ' ' + to);
+      sendAjaxToApi({ URL: 'convert?q=' + q }, response => {
+        if (response.results) {
+          var val = response.results[q].val;
+          var result = ((val * amount * 100) / 100).toFixed(2);
+          if (index == 0) {
+            $('.result-container').html('<strong>Result: </strong>' + result + ' ' + to);
+          }else{
+            $('.result-container').html($('.result-container').html() + '<br><strong>Result: </strong>' + result + ' ' + to);
+          }
+        }
+      });
     }
   });
 });
