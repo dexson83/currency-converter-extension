@@ -3,34 +3,64 @@ let browser = window.browser || window.chrome;
 
 $(() => {
   // Get Currencies List
-  getCurrencies(response => {
-    let listOptions = [];
-    if (response.results) {
-      $.each(response.results, function(key, item) {
-        let currencyItem = {
-          id: key,
-          title: item.currencyName + (item.currencySymbol ? ' (' + item.currencySymbol + ')' : '')
-        };
-        listOptions.push(currencyItem);
-      });
-    }
-
-    selectize = $('.currency-list').selectize({
-      valueField: 'id',
-      labelField: 'title',
-      searchField: 'title',
-      options: listOptions,
-      closeAfterSelect: true
-    });
-
-    // Set Default Currencies
-    setDefaultCurrencies();
-  });
+  initialiseCurrencyList(true)
 
   $('#currentYear').text(new Date().getFullYear());
   $('#settings').on('click', () => $('#settings_modal').show());
   $('#cancelbtn').on('click', () => $('#settings_modal').hide());
 });
+
+function initialiseCurrencyList(init){
+  if(init == true) {
+    getCurrencies(response => {
+      let listOptions = [];
+      if (response.results) {
+        $.each(response.results, function (key, item) {
+          let currencyItem = {
+            id: key,
+            title: item.currencyName + (item.currencySymbol ? ' (' + item.currencySymbol + ')' : '')
+          };
+          listOptions.push(currencyItem);
+        });
+      }
+
+      selectize = $('.currency-list').selectize({
+        valueField: 'id',
+        labelField: 'title',
+        searchField: 'title',
+        options: listOptions,
+        closeAfterSelect: true
+      });
+
+      // Set Default Currencies
+      setDefaultCurrencies();
+    });
+  }else{
+    getCurrencies(response => {
+      let listOptions = [];
+      if (response.results) {
+        $.each(response.results, function (key, item) {
+          let currencyItem = {
+            id: key,
+            title: item.currencyName + (item.currencySymbol ? ' (' + item.currencySymbol + ')' : '')
+          };
+          listOptions.push(currencyItem);
+        });
+      }
+
+      selectize = $('.toCurrency').selectize({
+        valueField: 'id',
+        labelField: 'title',
+        searchField: 'title',
+        options: listOptions,
+        closeAfterSelect: true
+      });
+
+      // Set Default Currencies
+      setDefaultCurrencies();
+    });
+  }
+}
 
 function setDefaultCurrencies() {
   if (localStorage.defaultCurrencies) {
@@ -60,6 +90,7 @@ $('#add-conversion').click(function (e) {
     totalNewConversionHTMLString = totalNewConversionHTMLString + totalNewConversionHTMLArray[i];
   }
   console.log($('#toCurrencyDiv').html(baseConversionHTML + totalNewConversionHTMLString));
+  initialiseCurrencyList(false);
 });
 
 $('#delete-conversion').click(function (e) {
@@ -78,6 +109,7 @@ $('#delete-conversion').click(function (e) {
     totalNewConversionHTMLString = totalNewConversionHTMLString + totalNewConversionHTMLArray[i];
   }
   console.log($('#toCurrencyDiv').html(baseConversionHTML + totalNewConversionHTMLString));
+  initialiseCurrencyList(false);
 });
 
 
