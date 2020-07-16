@@ -79,6 +79,10 @@ button#convert-currency {
     margin-right: 1%;
     width: 49%;
 }
+button#add-conversion {
+    margin-right: 1%;
+    width: 49%;
+}
 div.p-footer {
     text-align: center;
     border-top: 1px solid #607D8B;
