@@ -42,6 +42,45 @@ function setDefaultCurrencies() {
   }
 }
 
+var totalNewConversionHTMLArray = [];
+var baseConversionHTML = $('#toCurrencyDiv').html();
+$('#add-conversion').click(function (e) {
+  e.preventDefault();
+  let newCurrencyConversionHTML = "<div id=\"toCurrencyDiv\">\n" +
+      "            <div class=\"p-container\">\n" +
+      "                <label class=\"p-label\" for=\"toCurrency\">To</label>\n" +
+      "                <select class=\"currency-list toCurrency\" required>\n" +
+      "                    <option value=\"\">Please Select</option>\n" +
+      "                </select>\n" +
+      "            </div>\n" +
+      "        </div>";
+  totalNewConversionHTMLArray.push(newCurrencyConversionHTML)
+  var totalNewConversionHTMLString = "";
+  for(var i = 0; i < totalNewConversionHTMLArray.length; i++){
+    totalNewConversionHTMLString = totalNewConversionHTMLString + totalNewConversionHTMLArray[i];
+  }
+  console.log($('#toCurrencyDiv').html(baseConversionHTML + totalNewConversionHTMLString));
+});
+
+$('#delete-conversion').click(function (e) {
+  e.preventDefault();
+  let newCurrencyConversionHTML = "<div id=\"toCurrencyDiv\">\n" +
+      "            <div class=\"p-container\">\n" +
+      "                <label class=\"p-label\" for=\"toCurrency\">To</label>\n" +
+      "                <select class=\"currency-list toCurrency\" required>\n" +
+      "                    <option value=\"\">Please Select</option>\n" +
+      "                </select>\n" +
+      "            </div>\n" +
+      "        </div>";
+  totalNewConversionHTMLArray.pop()
+  var totalNewConversionHTMLString = "";
+  for(var i = 0; i < totalNewConversionHTMLArray.length; i++){
+    totalNewConversionHTMLString = totalNewConversionHTMLString + totalNewConversionHTMLArray[i];
+  }
+  console.log($('#toCurrencyDiv').html(baseConversionHTML + totalNewConversionHTMLString));
+});
+
+
 $('#settings_form').on('submit', e => {
   e.preventDefault();
 
