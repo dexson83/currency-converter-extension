@@ -10,5 +10,5 @@ version 1.3
 - The currency output will show all the conversion selected country
 
 version 1.4 
-Improve the css design of the interface
-Fix all the bug
+- Improve the css design of the interface
+- Fix all the bug
