@@ -26,11 +26,17 @@
                 <option value="">Please Select</option>
             </select>
         </div>
-        <div class="p-container">
-            <label class="p-label" for="toCurrency">To</label>
-            <select class="currency-list toCurrency" id="toCurrency" required>
-                <option value="">Please Select</option>
-            </select>
+        <div id="toCurrencyDiv">
+            <div class="p-container">
+                <label class="p-label">To</label>
+                <select class="currency-list toCurrency" id="toCurrency" required>
+                    <option value="">Please Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="p-container overflow">
+            <button id="add-conversion" class="currency-btn" type="submit">Add Conversion</button>
+            <button id="delete-conversion" class="currency-btn" type="submit">Delete Conversion</button>
         </div>
         <div class="p-container overflow">
             <button id="convert-currency" class="currency-btn" type="submit">Convert</button>
